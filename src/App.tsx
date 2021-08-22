@@ -1,10 +1,14 @@
 import React from 'react';
+import AppThemeProvider from './hooks/theme';
+import Dashboard from './pages/Dashboard';
 
 import GlobalStyle from './styles/global';
 
 const App: React.FC = () => (
   <>
-    <h1>Hello App</h1>
+    <AppThemeProvider>
+      <Dashboard />
+    </AppThemeProvider>
     <GlobalStyle />
   </>
 );

@@ -1,3 +1,10 @@
-const Dashboard: React.FC = () => <h1>Dashboard</h1>;
+import { useTheme } from '../../hooks/theme';
+import { Container } from './styles';
+
+const Dashboard: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return <Container></Container>;
+};
 
 export default Dashboard;
