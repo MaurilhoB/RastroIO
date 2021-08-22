@@ -7,11 +7,11 @@ export const usePersistedState = <T>(
   initialState: T,
 ): Response<T> => {
   const [state, setState] = useState(() => {
-    const storagedState = localStorage.getItem(key);
+    // const storagedState = localStorage.getItem(key);
 
-    if (storagedState) {
-      return JSON.parse(storagedState);
-    }
+    // if (storagedState) {
+    //   return JSON.parse(storagedState);
+    // }
 
     return initialState;
   });

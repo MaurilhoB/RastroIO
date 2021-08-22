@@ -8,8 +8,8 @@ const App: React.FC = () => (
   <>
     <AppThemeProvider>
       <Dashboard />
+      <GlobalStyle />
     </AppThemeProvider>
-    <GlobalStyle />
   </>
 );
 

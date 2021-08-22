@@ -7,6 +7,12 @@ declare module 'styled-components' {
     colors: {
       primary?: string;
       secondary?: string;
+      background_primary?: string;
+
+      surface?: string;
+
+      text_primary?: string;
+      text_secondary?: string;
     };
   }
 }

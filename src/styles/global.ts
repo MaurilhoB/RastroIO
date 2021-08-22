@@ -8,5 +8,7 @@ export default createGlobalStyle`
   }
   body {
     font-size: 14px;
+    font-family: sans-serif;
+    background: ${props => props.theme.colors.background_primary}
   }
 `;
