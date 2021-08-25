@@ -112,4 +112,5 @@ export const DeleteArchivedButton = styled.button`
   border: 0;
   padding: 12px;
   border-radius: 10px;
+  cursor: pointer;
 `;

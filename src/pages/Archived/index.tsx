@@ -17,7 +17,7 @@ import {
   Code,
   Title,
   DeleteArchivedButton,
-  MetaContainer
+  MetaContainer,
 } from './styles';
 
 interface SideMenuRef {
@@ -31,31 +31,31 @@ const Archived: React.FC = () => {
   const sideMenuRef = useRef<SideMenuRef>(null);
 
   const toggleMenu = useCallback(() => {
-    sideMenuRef.current?.toggleMenu()
-  }, [])
+    sideMenuRef.current?.toggleMenu();
+  }, []);
 
-  const [userPackages, setUserPackages] = useState(() => ([
+  const [userPackages, setUserPackages] = useState(() => [
     {
       title: 'Card Item Title',
-      code: 'PZ0214054194BR'
+      code: 'PZ0214054194BR',
     },
     {
       title: 'Card Item Title 2',
-      code: 'PZ02140214194BR'
+      code: 'PZ02140214194BR',
     },
     {
       title: 'Card Item Title 3',
-      code: 'PZ02140494194BR'
+      code: 'PZ02140494194BR',
     },
     {
       title: 'Card Item Title 4',
-      code: 'PZ02165404194BR'
+      code: 'PZ02165404194BR',
     },
     {
       title: 'Card Item Title 5',
-      code: 'PZ026680404194BR'
+      code: 'PZ026680404194BR',
     },
-  ]))
+  ]);
 
   return (
     <Container>
@@ -76,25 +76,24 @@ const Archived: React.FC = () => {
           </SearchBox>
         </Header>
         <ArchivedContainer>
-        <ArchivedItem>
-          <MetaContainer>
-            <Title>Archived Item 1</Title>
-            <Code>PA30129013013BR</Code>
-          </MetaContainer>
-          <DeleteArchivedButton>
-            <FiTrash size={15} color="#fff"/>
-          </DeleteArchivedButton>
-        </ArchivedItem>
-        <ArchivedItem>
-          <MetaContainer>
-            <Title>Archived Item 2</Title>
-            <Code>PA30129013013BR</Code>
-          </MetaContainer>
-          <DeleteArchivedButton>
-            <FiTrash size={15} color="#fff"/>
-          </DeleteArchivedButton>
-        </ArchivedItem>
-          
+          <ArchivedItem>
+            <MetaContainer>
+              <Title>Archived Item 1</Title>
+              <Code>PA30129013013BR</Code>
+            </MetaContainer>
+            <DeleteArchivedButton>
+              <FiTrash size={15} color="#fff" />
+            </DeleteArchivedButton>
+          </ArchivedItem>
+          <ArchivedItem>
+            <MetaContainer>
+              <Title>Archived Item 2</Title>
+              <Code>PA30129013013BR</Code>
+            </MetaContainer>
+            <DeleteArchivedButton>
+              <FiTrash size={15} color="#fff" />
+            </DeleteArchivedButton>
+          </ArchivedItem>
         </ArchivedContainer>
       </Content>
     </Container>

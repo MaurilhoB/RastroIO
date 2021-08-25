@@ -20,6 +20,7 @@ export const Menu = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 1px 0px ${props => props.theme.colors.border};
+  margin-right: 1px;
   padding: 0 10px;
 `;
 
