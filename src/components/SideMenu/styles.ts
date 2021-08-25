@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+import { animated } from '@react-spring/web';
 
 interface MenuItemProps {
   bgcolor: string;
 }
 
-export const Container = styled.div`
-  height: 100vh;
-  min-width: 80px;
+export const Container = styled(animated.div)`
+  max-width: 80px;
+  min-height: 100vh;
   background: ${props => props.theme.colors.surface};
   display: flex;
+  flex: 1;
 `;
 
 export const Menu = styled.div`
@@ -17,9 +19,8 @@ export const Menu = styled.div`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  border-right-width: 2px;
-  border-right-style: solid;
-  border-right-color: ${props => props.theme.colors.text_secondary};
+  box-shadow: 1px 0px ${props => props.theme.colors.border};
+  padding: 0 10px;
 `;
 
 export const MenuItem = styled.button<MenuItemProps>`

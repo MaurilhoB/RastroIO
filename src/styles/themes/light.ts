@@ -9,7 +9,9 @@ const light = {
     surface: '#fff',
 
     text_primary: '#333',
-    text_secondary: '#e0ddd5',
+    text_secondary: '#919097',
+
+    border: '#e0ddd5',
   },
 };
 

@@ -6,17 +6,46 @@ interface SearchBoxProps {
 
 export const Container = styled.div`
   display: flex;
+  width: 100%;
+`;
+
+export const Content = styled.main`
+  flex: 1;
 `;
 
 export const Header = styled.header`
   height: 85px;
-  background: ${props => props.theme.colors.surface};
-  border-bottom-color: ${props => props.theme.colors.text_secondary};
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
+
   display: flex;
   align-items: center;
+
+  background: ${props => props.theme.colors.surface};
+  box-shadow: 0px 1px ${props => props.theme.colors.border};
+
   padding: 0 30px;
+
+  @media (max-width: 580px) {
+    padding: 0;
+  }
+`;
+
+export const MenuToggleButton = styled.button`
+  padding: 10px;
+  border-radius: 6px;
+  border: 0;
+  background: ${props => props.theme.colors.background_primary};
+  margin: 0px 8px 0px 8px;
+  display: none;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.97);
+    box-shadow: 0.5px 0.5px ${props => props.theme.colors.border};
+  }
+
+  @media screen and (max-width: 580px) {
+    display: flex;
+  }
 `;
 
 export const SearchBox = styled.div<SearchBoxProps>`
@@ -41,6 +70,11 @@ export const SearchInput = styled.input`
   flex: 1;
 `;
 
-export const Content = styled.main`
-  flex: 1;
+export const CardsContainer = styled.div`
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  @media screen and (max-width: 580px) {
+    justify-content: center;
+  }
 `;

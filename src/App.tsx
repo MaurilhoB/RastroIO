@@ -1,16 +1,14 @@
 import React from 'react';
-import AppThemeProvider from './hooks/theme';
+import AppProvider from './hooks';
 import Dashboard from './pages/Dashboard';
 
 import GlobalStyle from './styles/global';
 
 const App: React.FC = () => (
-  <>
-    <AppThemeProvider>
-      <Dashboard />
-      <GlobalStyle />
-    </AppThemeProvider>
-  </>
+  <AppProvider>
+    <Dashboard />
+    <GlobalStyle />
+  </AppProvider>
 );
 
 export default App;

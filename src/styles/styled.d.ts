@@ -13,6 +13,8 @@ declare module 'styled-components' {
 
       text_primary?: string;
       text_secondary?: string;
+
+      border?: string;
     };
   }
 }
