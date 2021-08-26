@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from '@react-spring/web';
 
 interface SearchBoxProps {
   isFocused: boolean;
@@ -70,7 +71,7 @@ export const SearchInput = styled.input`
   flex: 1;
 `;
 
-export const ArchivedContainer = styled.div`
+export const ArchivedContainer = styled(animated.div)`
   background: ${props => props.theme.colors.surface};
   max-width: 90%;
   margin: 30px auto 0px;
@@ -94,7 +95,7 @@ export const MetaContainer = styled.div``;
 
 export const Title = styled.h1`
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   color: ${props => props.theme.colors.text_primary};
 `;

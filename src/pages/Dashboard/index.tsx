@@ -26,31 +26,31 @@ const Dashboard: React.FC = () => {
   const sideMenuRef = useRef<SideMenuRef>(null);
 
   const toggleMenu = useCallback(() => {
-    sideMenuRef.current?.toggleMenu()
-  }, [])
+    sideMenuRef.current?.toggleMenu();
+  }, []);
 
-  const [userPackages, setUserPackages] = useState(() => ([
+  const [userPackages, setUserPackages] = useState(() => [
     {
       title: 'Card Item Title',
-      code: 'PZ0214054194BR'
+      code: 'PZ0214054194BR',
     },
     {
       title: 'Card Item Title 2',
-      code: 'PZ02140214194BR'
+      code: 'PZ02140214194BR',
     },
     {
       title: 'Card Item Title 3',
-      code: 'PZ02140494194BR'
+      code: 'PZ02140494194BR',
     },
     {
       title: 'Card Item Title 4',
-      code: 'PZ02165404194BR'
+      code: 'PZ02165404194BR',
     },
     {
       title: 'Card Item Title 5',
-      code: 'PZ026680404194BR'
+      code: 'PZ026680404194BR',
     },
-  ]))
+  ]);
 
   return (
     <Container>
@@ -71,8 +71,8 @@ const Dashboard: React.FC = () => {
           </SearchBox>
         </Header>
         <CardsContainer>
-          <Card title="Pendentes" items={userPackages}/>
-          <Card title="Entregues" items={userPackages}/>
+          <Card title="Pendentes" items={userPackages} />
+          <Card title="Entregues" items={userPackages} />
         </CardsContainer>
       </Content>
     </Container>

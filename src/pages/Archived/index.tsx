@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react';
+import { useSpring } from '@react-spring/web';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { FiMenu, FiSearch, FiTrash } from 'react-icons/fi';
 
@@ -33,6 +34,14 @@ const Archived: React.FC = () => {
   const toggleMenu = useCallback(() => {
     sideMenuRef.current?.toggleMenu();
   }, []);
+
+  const [{ scale }, set] = useSpring(() => ({
+    scale: 0,
+  }));
+
+  useEffect(() => {
+    set({ scale: 1 });
+  }, [set]);
 
   const [userPackages, setUserPackages] = useState(() => [
     {
@@ -75,7 +84,7 @@ const Archived: React.FC = () => {
             <FiSearch size={26} color={theme.colors.text_primary} />
           </SearchBox>
         </Header>
-        <ArchivedContainer>
+        <ArchivedContainer style={{ scale }}>
           <ArchivedItem>
             <MetaContainer>
               <Title>Archived Item 1</Title>
