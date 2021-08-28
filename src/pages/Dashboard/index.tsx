@@ -1,8 +1,10 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { FiMenu, FiSearch } from 'react-icons/fi';
+import { FiFilePlus, FiMenu, FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
 
 import SideMenu from '../../components/SideMenu';
+import { usePackages } from '../../hooks/packages';
 import { useTheme } from '../../hooks/theme';
 
 import {
@@ -13,6 +15,8 @@ import {
   SearchBox,
   SearchInput,
   CardsContainer,
+  NewTrackContainer,
+  NewTrackButton,
 } from './styles';
 
 interface SideMenuRef {
@@ -29,28 +33,7 @@ const Dashboard: React.FC = () => {
     sideMenuRef.current?.toggleMenu();
   }, []);
 
-  const [userPackages, setUserPackages] = useState(() => [
-    {
-      title: 'Card Item Title',
-      code: 'PZ0214054194BR',
-    },
-    {
-      title: 'Card Item Title 2',
-      code: 'PZ02140214194BR',
-    },
-    {
-      title: 'Card Item Title 3',
-      code: 'PZ02140494194BR',
-    },
-    {
-      title: 'Card Item Title 4',
-      code: 'PZ02165404194BR',
-    },
-    {
-      title: 'Card Item Title 5',
-      code: 'PZ026680404194BR',
-    },
-  ]);
+  const { packages, create } = usePackages();
 
   return (
     <Container>
@@ -70,9 +53,17 @@ const Dashboard: React.FC = () => {
             <FiSearch size={26} color={theme.colors.text_primary} />
           </SearchBox>
         </Header>
+        <NewTrackContainer>
+          <Link to="/new">
+            <NewTrackButton>
+              <FiFilePlus />
+              <h4>Adicionar um novo</h4>
+            </NewTrackButton>
+          </Link>
+        </NewTrackContainer>
         <CardsContainer>
-          <Card title="Pendentes" items={userPackages} />
-          <Card title="Entregues" items={userPackages} />
+          <Card title="Pendentes" items={packages.tracking} />
+          <Card title="Entregues" items={packages.delivered} />
         </CardsContainer>
       </Content>
     </Container>

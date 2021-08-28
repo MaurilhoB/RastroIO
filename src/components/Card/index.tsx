@@ -7,6 +7,7 @@ import { Container, CardTitle } from './styles';
 import CardItem from './CardItem';
 
 interface CardItemProp {
+  id: string;
   title: string;
   code: string;
 }
@@ -29,7 +30,12 @@ const Card: React.FC<CardProps> = ({ items, title }) => {
     <Container style={{ scale }}>
       <CardTitle>{title}</CardTitle>
       {items.map(item => (
-        <CardItem key={item.code} code={item.code} title={item.title} />
+        <CardItem
+          id={item.id}
+          key={item.id}
+          code={item.code}
+          title={item.title}
+        />
       ))}
     </Container>
   );

@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
 
 import { FiEdit, FiPackage, FiTrash } from 'react-icons/fi';
+import { usePackages } from '../../../hooks/packages';
+
 import Modal from '../../Modal';
 
 import {
@@ -14,12 +16,14 @@ import {
 } from './styles';
 
 interface ICardItemProps {
+  id: string;
   title: string;
   code: string;
 }
 
-const CardItem: React.FC<ICardItemProps> = ({ code, title }) => {
+const CardItem: React.FC<ICardItemProps> = ({ code, title, id }) => {
   const [showModal, setShowModal] = useState(false);
+  const { dropFrom } = usePackages();
 
   const deleteCardHandle = useCallback(() => {
     setShowModal(true);
@@ -43,13 +47,16 @@ const CardItem: React.FC<ICardItemProps> = ({ code, title }) => {
             <FiTrash color="#fff" />
           </IconButton>
         </OptionsContainer>
+
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <h1>Lorem ipsum dolor sit amet nandesuka</h1>
+            <button onClick={() => dropFrom({ id, key: 'tracking' })}>
+              Deletar
+            </button>
+          </Modal>
+        )}
       </Container>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <h1>Lorem ipsum dolor sit amet nandesuka</h1>
-          <button onClick={() => alert('hi')}>Click-me</button>
-        </Modal>
-      )}
     </>
   );
 };

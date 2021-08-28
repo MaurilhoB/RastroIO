@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface SearchBoxProps {
+interface InputProps {
   isFocused: boolean;
 }
 
@@ -48,53 +48,46 @@ export const MenuToggleButton = styled.button`
   }
 `;
 
-export const SearchBox = styled.div<SearchBoxProps>`
-  background: ${props => props.theme.colors.background_primary};
+export const Form = styled.form`
   display: flex;
-  align-items: center;
-  border-radius: 20px;
-  padding: 0 20px;
   flex: 1;
-  border: 2px solid
-    ${({ theme, isFocused }) =>
-      isFocused ? theme.colors.primary : 'transparent'};
+  flex-direction: column;
+  margin: 80px auto;
+  max-width: 80%;
 `;
 
-export const SearchInput = styled.input`
-  padding: 15px 10px;
-  color: ${props => props.theme.colors.text_primary};
-  font-family: 'Poppins';
-  background: transparent;
-  outline: none;
-  border: 0;
-  flex: 1;
-`;
-
-export const CardsContainer = styled.div`
-  display: flex;
-  padding: 20px;
-  flex-wrap: wrap;
-  @media screen and (max-width: 580px) {
-    justify-content: center;
-  }
-`;
-
-export const NewTrackContainer = styled.div`
-  display: flex;
-  padding: 12px 30px 0px;
-
-  a {
-    text-decoration: none;
-  }
-`;
-
-export const NewTrackButton = styled.button`
-  display: flex;
-  padding: 10px;
-  background: ${props => props.theme.colors.primary};
+export const Input = styled.input<InputProps>`
+  padding: 15px;
   border-radius: 10px;
   border: 0;
-  color: #fff;
+  outline: none;
+  font-family: 'Poppins';
+  color: ${props => props.theme.colors.text_primary};
+  background: ${props => props.theme.colors.surface};
+
+  box-shadow: 0px 0px 5px 1px
+    ${props =>
+      props.isFocused ? props.theme.colors.primary : props.theme.colors.border};
+
+  & + input {
+    margin-top: 20px;
+  }
+
+  & + input {
+    margin-top: 20px;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  margin-top: 20px;
+  font-family: 'Poppins';
+  font-size: 1rem;
 
   transition: scale 0.2s linear;
 
@@ -104,15 +97,11 @@ export const NewTrackButton = styled.button`
 
   cursor: pointer;
 
-  > h4 {
-    font-size: 1rem;
-    font-family: 'Poppins';
-    font-weight: 500;
-  }
-
   > svg {
-    width: 22px;
-    height: 22px;
     margin-right: 8px;
   }
+
+  color: #fff;
+
+  background: ${props => props.theme.colors.primary};
 `;
