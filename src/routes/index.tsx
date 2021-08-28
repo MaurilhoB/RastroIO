@@ -4,12 +4,14 @@ import { Switch, Route } from 'react-router-dom';
 import Archived from '../pages/Archived';
 import Dashboard from '../pages/Dashboard';
 import New from '../pages/New';
+import Edit from '../pages/Edit';
 
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" component={Dashboard} exact />
     <Route path="/archived" component={Archived} />
     <Route path="/new" component={New} />
+    <Route path="/edit" component={Edit} />
   </Switch>
 );
 

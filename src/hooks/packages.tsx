@@ -10,6 +10,7 @@ interface IPackage {
   id: string;
   title: string;
   code: string;
+  events: [];
 }
 
 interface IPackages {
@@ -42,7 +43,7 @@ const PackagesProvider: React.FC = ({ children }) => {
     ({ title, code }: ICreatePackageDTO) => {
       setPackages(prev => ({
         ...prev,
-        tracking: [...prev.tracking, { id: uuid(), title, code }],
+        tracking: [...prev.tracking, { id: uuid(), title, code, events: [] }],
       }));
     },
     [setPackages],
