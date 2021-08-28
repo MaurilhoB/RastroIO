@@ -49,7 +49,7 @@ const New: React.FC = () => {
         alert('Preencha todos os campos');
       }
     },
-    [name, code, create],
+    [name, code, create, history],
   );
 
   return (

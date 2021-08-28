@@ -22,6 +22,7 @@ interface IPackages {
 interface PackagesContextData {
   create(data: ICreatePackageDTO): void;
   dropFrom(data: IDropFromDTO): void;
+  findCodeById(id: string): string;
   packages: IPackages;
 }
 
@@ -50,7 +51,7 @@ const PackagesProvider: React.FC = ({ children }) => {
   );
 
   const dropFrom = useCallback(
-    ({ id, key }: IDropFromDTO) => {
+    ({ id, key }: IDropFromDTO): void => {
       const filteredPackages = packages[key].filter(item => item.id !== id);
       setPackages(prev => ({
         ...prev,
@@ -60,8 +61,15 @@ const PackagesProvider: React.FC = ({ children }) => {
     [packages, setPackages],
   );
 
+  const findCodeById = useCallback((id: string): string => {
+    const findIndex = packages.tracking.findIndex(item => item.id === id);
+    return packages.tracking[findIndex]?.code;
+  }, []);
+
   return (
-    <PackagesContext.Provider value={{ create, packages, dropFrom }}>
+    <PackagesContext.Provider
+      value={{ create, packages, dropFrom, findCodeById }}
+    >
       {children}
     </PackagesContext.Provider>
   );

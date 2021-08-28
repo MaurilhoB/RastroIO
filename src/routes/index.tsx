@@ -5,6 +5,7 @@ import Archived from '../pages/Archived';
 import Dashboard from '../pages/Dashboard';
 import New from '../pages/New';
 import Edit from '../pages/Edit';
+import Track from '../pages/Tracking';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -12,6 +13,7 @@ const Routes: React.FC = () => (
     <Route path="/archived" component={Archived} />
     <Route path="/new" component={New} />
     <Route path="/edit" component={Edit} />
+    <Route path="/track/:id" component={Track} />
   </Switch>
 );
 

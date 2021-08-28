@@ -43,29 +43,6 @@ const Archived: React.FC = () => {
     set({ scale: 1 });
   }, [set]);
 
-  const [userPackages, setUserPackages] = useState(() => [
-    {
-      title: 'Card Item Title',
-      code: 'PZ0214054194BR',
-    },
-    {
-      title: 'Card Item Title 2',
-      code: 'PZ02140214194BR',
-    },
-    {
-      title: 'Card Item Title 3',
-      code: 'PZ02140494194BR',
-    },
-    {
-      title: 'Card Item Title 4',
-      code: 'PZ02165404194BR',
-    },
-    {
-      title: 'Card Item Title 5',
-      code: 'PZ026680404194BR',
-    },
-  ]);
-
   return (
     <Container>
       <SideMenu ref={sideMenuRef} />

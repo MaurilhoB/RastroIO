@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
     sideMenuRef.current?.toggleMenu();
   }, []);
 
-  const { packages, create } = usePackages();
+  const { packages } = usePackages();
 
   return (
     <Container>
