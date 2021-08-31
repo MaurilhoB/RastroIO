@@ -44,6 +44,77 @@ export const MenuToggleButton = styled.button`
   }
 `;
 
+export const OptionsContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+
+  @media screen and (max-width: 580px) {
+    justify-content: center;
+  }
+`;
+
+export const ReceivedButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-right: 8px;
+  border-radius: 10px;
+  border: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  box-shadow: 2px 2px 2px ${props => props.theme.colors.border};
+
+  background: #00e676;
+  color: #fff;
+
+  transition: scale 0.2s linear;
+
+  > svg {
+    margin-right: 4px;
+    font-size: 1rem;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  cursor: pointer;
+`;
+
+export const ArchiveButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  box-shadow: 2px 2px 2px ${props => props.theme.colors.border};
+
+  background: #f1ac38;
+  color: #fff;
+
+  transition: scale 0.2s linear;
+
+  > svg {
+    margin-right: 4px;
+    font-size: 1rem;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  cursor: pointer;
+`;
+
 export const TrackingContainer = styled.div`
   max-width: 90%;
   margin: 0px auto;
@@ -51,16 +122,17 @@ export const TrackingContainer = styled.div`
 
 export const MainStatus = styled.div`
   background: ${props => props.theme.colors.surface};
+  box-shadow: 1px 1px 0px ${props => props.theme.colors.border};
   display: flex;
   flex-direction: column;
-  margin: 30px 0px;
+  margin: 10px 0px 30px;
   padding: 20px;
   border-radius: 10px;
 
   h1 {
     font-size: 20px;
     font-weight: 500;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     color: ${props => props.theme.colors.text_primary};
     margin-bottom: 10px;
 
@@ -76,6 +148,7 @@ export const MainStatus = styled.div`
 
 export const Status = styled.div`
   background: ${props => props.theme.colors.surface};
+  box-shadow: 1px 1px 0px ${props => props.theme.colors.border};
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -87,7 +160,7 @@ export const Status = styled.div`
 `;
 
 export const Row = styled.div`
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   color: ${props => props.theme.colors.text_primary};
 
   strong {

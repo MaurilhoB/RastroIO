@@ -1,9 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
+
+import { Link } from 'react-router-dom';
 
 import { FiEdit, FiPackage, FiTrash } from 'react-icons/fi';
 import { usePackages } from '../../../hooks/packages';
-
-import Modal from '../../Modal';
 
 import {
   Container,
@@ -13,25 +13,45 @@ import {
   CardItemCode,
   OptionsContainer,
   IconButton,
+  WarningContainer,
+  WarningTitle,
+  WarningMessage,
+  WarningConfirmButton,
 } from './styles';
+
+import { useModal } from '../../../hooks/modal';
 
 interface ICardItemProps {
   id: string;
   title: string;
   code: string;
+  hasUpdate: boolean;
 }
 
-const CardItem: React.FC<ICardItemProps> = ({ code, title, id }) => {
-  const [showModal, setShowModal] = useState(false);
-  const { dropFrom } = usePackages();
+const CardItem: React.FC<ICardItemProps> = ({ code, title, id, hasUpdate }) => {
+  const { drop } = usePackages();
+
+  const { addModal } = useModal();
 
   const deleteCardHandle = useCallback(() => {
-    setShowModal(true);
-  }, []);
+    addModal({
+      component: () => (
+        <WarningContainer>
+          <WarningTitle>Aviso!</WarningTitle>
+          <WarningMessage>
+            Deseja mesmo remover o pacote?, esta ação não pode ser desfeita
+          </WarningMessage>
+          <WarningConfirmButton onClick={() => drop(id)}>
+            Confirmar
+          </WarningConfirmButton>
+        </WarningContainer>
+      ),
+    });
+  }, [addModal, drop, id]);
 
   return (
-    <>
-      <Container>
+    <Container hasUpdate={hasUpdate}>
+      <Link to={`/track/${id}`}>
         <CardIconContainer>
           <FiPackage size={22} color="#fff" />
         </CardIconContainer>
@@ -39,25 +59,18 @@ const CardItem: React.FC<ICardItemProps> = ({ code, title, id }) => {
           <CardItemTitle>{title}</CardItemTitle>
           <CardItemCode>{code}</CardItemCode>
         </CardMetaContainer>
-        <OptionsContainer>
+      </Link>
+      <OptionsContainer>
+        <Link to={`/edit/${id}`}>
           <IconButton color="#4895ef">
             <FiEdit color="#fff" />
           </IconButton>
-          <IconButton color="#e76f51" onClick={deleteCardHandle}>
-            <FiTrash color="#fff" />
-          </IconButton>
-        </OptionsContainer>
-
-        {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <h1>Lorem ipsum dolor sit amet nandesuka</h1>
-            <button onClick={() => dropFrom({ id, key: 'tracking' })}>
-              Deletar
-            </button>
-          </Modal>
-        )}
-      </Container>
-    </>
+        </Link>
+        <IconButton color="#e76f51" onClick={deleteCardHandle}>
+          <FiTrash color="#fff" />
+        </IconButton>
+      </OptionsContainer>
+    </Container>
   );
 };
 

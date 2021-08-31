@@ -1,45 +1,44 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 
 import { useTransition } from '@react-spring/web';
 import { FiX } from 'react-icons/fi';
 
 import { Container, ModalContainer, ModalCloseButton } from './styles';
+import { useModal } from '../../hooks/modal';
 
-interface ModalProps {
-  onClose?: () => void;
-}
+const Modal: React.FC = () => {
+  const { modals, removeModal } = useModal();
 
-const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
-  const [shown, setShown] = useState(true);
-
-  const transition = useTransition(shown, {
+  const transitions = useTransition(modals, {
     from: { top: '-100%' },
     enter: { top: '0%' },
     leave: { top: '-100%' },
-    onRest: (e: any) => {
-      if (e.value.top === '-100%' && onClose) {
+    keys: modal => modal.id,
+  });
+
+  const closeModalHandle = useCallback(
+    (id: string, onClose?: () => void) => {
+      removeModal(id);
+
+      if (onClose) {
         onClose();
       }
     },
-  });
-
-  const closeModalHandle = useCallback(() => {
-    setShown(false);
-  }, []);
-
-  return transition(
-    (styles, item) =>
-      item && (
-        <Container onClick={closeModalHandle}>
-          <ModalContainer style={styles}>
-            <ModalCloseButton onClick={closeModalHandle}>
-              <FiX />
-            </ModalCloseButton>
-            {children}
-          </ModalContainer>
-        </Container>
-      ),
+    [removeModal],
   );
+
+  return transitions((styles, { id, onClose, component: Component }) => {
+    return (
+      <Container key={id} onClick={() => closeModalHandle(id, onClose)}>
+        <ModalContainer style={styles}>
+          <ModalCloseButton onClick={() => closeModalHandle(id, onClose)}>
+            <FiX />
+          </ModalCloseButton>
+          <Component />
+        </ModalContainer>
+      </Container>
+    );
+  });
 };
 
 export default Modal;

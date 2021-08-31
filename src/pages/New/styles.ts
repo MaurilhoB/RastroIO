@@ -61,7 +61,7 @@ export const Input = styled.input<InputProps>`
   border-radius: 10px;
   border: 0;
   outline: none;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   color: ${props => props.theme.colors.text_primary};
   background: ${props => props.theme.colors.surface};
 
@@ -86,7 +86,7 @@ export const SubmitButton = styled.button`
   border-radius: 10px;
   border: 0;
   margin-top: 20px;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 
   transition: scale 0.2s linear;

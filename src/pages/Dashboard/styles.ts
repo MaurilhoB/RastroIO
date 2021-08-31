@@ -63,7 +63,7 @@ export const SearchBox = styled.div<SearchBoxProps>`
 export const SearchInput = styled.input`
   padding: 15px 10px;
   color: ${props => props.theme.colors.text_primary};
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   background: transparent;
   outline: none;
   border: 0;
@@ -90,6 +90,7 @@ export const NewTrackContainer = styled.div`
 
 export const NewTrackButton = styled.button`
   display: flex;
+  align-items: center;
   padding: 10px;
   background: ${props => props.theme.colors.primary};
   border-radius: 10px;
@@ -106,7 +107,7 @@ export const NewTrackButton = styled.button`
 
   > h4 {
     font-size: 1rem;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
 

@@ -10,6 +10,7 @@ interface CardItemProp {
   id: string;
   title: string;
   code: string;
+  hasUpdate: boolean;
 }
 
 interface CardProps {
@@ -31,10 +32,11 @@ const Card: React.FC<CardProps> = ({ items, title }) => {
       <CardTitle>{title}</CardTitle>
       {items.map(item => (
         <CardItem
-          id={item.id}
           key={item.id}
+          id={item.id}
           code={item.code}
           title={item.title}
+          hasUpdate={item.hasUpdate}
         />
       ))}
     </Container>

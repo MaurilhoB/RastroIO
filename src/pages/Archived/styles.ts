@@ -64,7 +64,7 @@ export const SearchBox = styled.div<SearchBoxProps>`
 export const SearchInput = styled.input`
   padding: 15px 10px;
   color: ${props => props.theme.colors.text_primary};
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   background: transparent;
   outline: none;
   border: 0;
@@ -78,6 +78,11 @@ export const ArchivedContainer = styled(animated.div)`
   border-radius: 10px;
   padding: 20px 30px;
   box-shadow: 1px 1px ${props => props.theme.colors.border};
+
+  a {
+    text-decoration: none;
+    flex: 1;
+  }
 
   & > div:last-child {
     box-shadow: 0px 0px transparent;
@@ -113,5 +118,35 @@ export const DeleteArchivedButton = styled.button`
   border: 0;
   padding: 12px;
   border-radius: 10px;
+  cursor: pointer;
+`;
+
+export const WarningContainer = styled.div`
+  font-family: 'Poppins', sans-serif;
+`;
+
+export const WarningTitle = styled.h2`
+  color: ${props => props.theme.colors.text_primary};
+`;
+
+export const WarningMessage = styled.p`
+  margin: 10px 0px;
+  color: ${props => props.theme.colors.text_secondary};
+`;
+
+export const WarningConfirmButton = styled.button`
+  font-family: 'Poppins', sans-serif;
+  border: 0;
+  padding: 10px;
+  background: #e76f51;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  transition: scale 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
   cursor: pointer;
 `;

@@ -4,10 +4,57 @@ interface IconButtonProps {
   color?: string;
 }
 
-export const Container = styled.div`
+interface ContainerProps {
+  hasUpdate: boolean;
+}
+
+export const WarningContainer = styled.div`
+  font-family: 'Poppins', sans-serif;
+`;
+
+export const WarningTitle = styled.h2`
+  color: ${props => props.theme.colors.text_primary};
+`;
+
+export const WarningMessage = styled.p`
+  margin: 10px 0px;
+  color: ${props => props.theme.colors.text_secondary};
+`;
+
+export const WarningConfirmButton = styled.button`
+  font-family: 'Poppins', sans-serif;
+  border: 0;
+  padding: 10px;
+  background: #e76f51;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  transition: scale 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  cursor: pointer;
+`;
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
   cursor: pointer;
+
+  background: ${props =>
+    props.hasUpdate ? 'rgb(166, 148, 230, .15)' : 'transparent'};
+
+  > a {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    text-decoration: none;
+  }
 
   & > div:last-child {
     opacity: 0;

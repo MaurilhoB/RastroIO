@@ -8,12 +8,6 @@ export const Container = styled(animated.div)`
   box-shadow: 1.2px 1.2px ${props => props.theme.colors.border};
   padding: 10px 0px 8px 8px;
 
-  & > div > div:nth-child(2) {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: ${props => props.theme.colors.border};
-  }
-
   & > div:last-child > div {
     border: 0;
   }
