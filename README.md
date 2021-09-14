@@ -20,7 +20,7 @@ Aplicação react para rastreamento de pacotes dos Correios Brasil.
 
 ```sh
 $ git clone https://github.com/MaurilhoB/RastroIO.git
-$ cd rastroio
+$ cd RastroIO
 $ yarn && yarn start
 ```
 
